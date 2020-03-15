@@ -10,6 +10,17 @@ h1, h3 {
     margin: 2px;
 }
 
+.navBar {
+    background-color: whitesmoke;
+    color: white;
+}
+
+.navItem {
+    margin: 12px;
+    font-size: 24px;
+    color:black;
+}
+
 .profileBust {
     display: flex;
     justify-content: center;
