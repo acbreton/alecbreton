@@ -1,24 +1,14 @@
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);
 html,
 body {
-    width: 100%;
     margin: auto;
-    font: 16px "Source Sans Pro", sans-serif; font-weight: 400; 
+    font: 16px "Source Sans Pro", sans-serif; 
+    font-weight: 400; 
+    background-color: whitesmoke;
 }
 
 h1, h3 {
     margin: 2px;
-}
-
-.navBar {
-    background-color: whitesmoke;
-    color: white;
-}
-
-.navItem {
-    margin: 12px;
-    font-size: 24px;
-    color:black;
 }
 
 .profileBust {
@@ -32,7 +22,7 @@ h1, h3 {
 .profileImage {
     width: 200px;
     border-radius: 100%;
-    border: 5px solid white;
+    border: 5px solid cornflowerblue;
 }
 
 .profileInfo {
@@ -42,10 +32,8 @@ h1, h3 {
 }
 
 #profileHeader {
-    height: 80%;
-    background-color: cornflowerblue;
-}
-
-#links {
-    background-color: whitesmoke;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
