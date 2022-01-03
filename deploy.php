@@ -4,7 +4,7 @@
         'whoami',
         'ls -ld',
         'which git',
-        'git pull 2>&1',
+        'ssh-add ~/.ssh/id_rsa_alecbreton git pull 2>&1',
         'git status'
     );
 
