@@ -8,11 +8,6 @@ a {
     margin: 12px;
 }
 
-img {
-    height: 50px;
-    width: 50px;
-}
-
 #profile {
     height: 50%;
     display: flex;

@@ -4,4 +4,6 @@ function formatTitle() {
     titleElem.innerHTML = (width < 500) ? "<br>&emsp;\"Alec Breton\"<br>" : "\"Alec Breton\"";
 }
 
+formatTitle();
+
 window.addEventListener('resize', formatTitle);
