@@ -4,7 +4,7 @@
         'whoami',
         'ls -ld',
         'which git',
-        'git pull',
+        'git pull 2>&1',
         'git status'
     );
 
