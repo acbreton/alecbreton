@@ -1,7 +1,6 @@
 <?php
     $commands = array(
-        'eval $(ssh-agent -s) ssh-add ~/.ssh/id_rsa_alecbreton git pull 2>&1',
-        'git status'
+        'eval $(ssh-agent -s) ssh-add ~/.ssh/id_rsa_alecbreton && git pull 2>&1',
     );
 
     $output = '';
