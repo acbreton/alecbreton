@@ -10,7 +10,7 @@
     $commands = array(
         'echo $PWD',
         'whoami',
-        'git pull git@github.com:acbreton/alecbreton.git',
+        'git pull',
         'git status'
     );
 
