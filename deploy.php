@@ -1,12 +1,4 @@
 <?php
-    /**
-     * GIT DEPLOYMENT SCRIPT
-     *
-     * Used for automatically deploying websites via GitHub
-     *
-     */
-
-    // array of commands
     $commands = array(
         'echo $PWD',
         'whoami',
@@ -14,7 +6,6 @@
         'git status'
     );
 
-    // exec commands
     $output = '';
     foreach($commands AS $command){
         $tmp = shell_exec($command);
