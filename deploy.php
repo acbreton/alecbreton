@@ -1,29 +1,22 @@
 <?php
-    $commands = array(
-        'eval $(ssh-agent -s) ssh-add ~/.ssh/id_rsa_alecbreton && git pull 2>&1',
-    );
+    $command = 'eval $(ssh-agent -s) ssh-add ~/.ssh/id_rsa_alecbreton && git pull 2>&1';
 
     $output = '';
-    foreach($commands AS $command){
-        $tmp = shell_exec($command);
+    $tmp = shell_exec($command);
 
-        $output .= "<span style=\"color: #6BE234;\">\$</span><span style=\"color: #729FCF;\">{$command}\n</span><br />";
-        $output .= htmlentities(trim($tmp)) . "\n<br /><br />";
-    }
+    $output .= "<span style=\"color: #6BE234;\">\$</span><span style=\"color: #729FCF;\">{$command}\n</span><br />";
+    $output .= htmlentities(trim($tmp)) . "\n<br /><br />";
 ?>
 
 <!DOCTYPE HTML>
 <html lang="en-US">
-<head>
-    <meta charset="UTF-8">
-    <title>GIT DEPLOYMENT SCRIPT</title>
-</head>
-<body style="background-color: #000000; color: #FFFFFF; font-weight: bold; padding: 0 10px;">
-<div style="width:700px">
-    <div style="float:left;width:350px;">
-    <p style="color:white;">Git Deployment Script</p>
-    <?php echo $output; ?>
-    </div>
-</div>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Git Deployment Script</title>
+    </head>
+    <body>
+        <div>
+            <?php echo $output; ?>
+        </div>
+    </body>
 </html>
