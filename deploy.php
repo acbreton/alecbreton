@@ -2,6 +2,7 @@
     $commands = array(
         'echo $PWD',
         'whoami',
+        'which git',
         'git pull',
         'git status'
     );
