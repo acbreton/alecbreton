@@ -1,10 +1,6 @@
 <?php
     $commands = array(
-        'echo $PWD',
-        'whoami',
-        'ls -ld',
-        'which git',
-        'ssh-add ~/.ssh/id_rsa_alecbreton git pull 2>&1',
+        'eval $(ssh-agent -s) ssh-add ~/.ssh/id_rsa_alecbreton git pull 2>&1',
         'git status'
     );
 
