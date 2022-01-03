@@ -1,7 +1,7 @@
-function openNav() {
-    document.getElementById("myNav").style.width = "100%";
+function formatTitle() {
+    let width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+    let titleElem = document.getElementById('profile-title');
+    titleElem.innerHTML = (width < 500) ? "<br>&emsp;\"Alec Breton\"<br>" : "\"Alec Breton\"";
 }
 
-function closeNav() {
-    document.getElementById("myNav").style.width = "0%";
-}
+window.addEventListener('resize', formatTitle);

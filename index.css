@@ -8,19 +8,24 @@ a {
     margin: 12px;
 }
 
-#profileHeader {
+img {
+    height: 50px;
+    width: 50px;
+}
+
+#profile {
     height: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.profileInfo {
+.profile-info {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.external-links {
-    margin: 12px;
+.profile-links {
+    margin-top: 12px;
 }
