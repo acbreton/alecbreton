@@ -4,7 +4,12 @@
   "description": "Personal website",
   "main": "./src/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "vite build -c ./vite.config.js",
+    "build:dev": "NODE_ENV=development vite build --mode development -c ./vite.config.js",
+    "build:watch": "vite build --watch",
+    "start": "vite -c ./vite.config.js",
+    "web": "npm run build && npm run start",
+    "web-dev": "npm run build:dev && npm run start"
   },
   "repository": {
     "type": "git",
