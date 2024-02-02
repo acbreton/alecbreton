@@ -1,0 +1,29 @@
+html,
+body {
+    font: 16px "Source Sans Pro", sans-serif;
+}
+
+a {
+    margin: 12px;
+    text-decoration: none;
+}
+
+#profile {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black !important;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#profile-links {
+    margin-top: 12px;
+    margin-bottom: 24px;
+}
