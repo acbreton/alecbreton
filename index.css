@@ -9,7 +9,7 @@ a {
 }
 
 #profile {
-    height: 50%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,4 +19,58 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+#profile-links,
+#project-links {
+    margin: 24px 0;
+}
+
+#project-links {
+    display: flex;
+    flex-direction: row;
+}
+
+#blockchain-project,
+#tetris-project {
+    position: relative;
+    margin: 0 48px;
+}
+
+#blockchain-screenshot,
+#tetris-screenshot {
+    opacity: 1;
+    display: block;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+.middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#blockchain-project:hover #blockchain-screenshot,
+#tetris-project:hover #tetris-screenshot {
+    opacity: 0.3;
+}
+
+#blockchain-project:hover .middle,
+#tetris-project:hover .middle {
+    opacity: 1;
+}
+
+#project-link {
+    background-color: rgb(35, 160, 30);
+    color: white;
+    font-size: 16px;
+    padding: 16px 32px;
 }
