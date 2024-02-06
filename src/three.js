@@ -54,8 +54,9 @@ function init() {
     camera.position.set(-40, 0, 60);
 
     controls = new OrbitControls( camera, renderer.domElement );
-    controls.minDistance = 25;
-    controls.maxDistance = 100;
+    controls.enablePan = false;
+    controls.minDistance = 50;
+    controls.maxDistance = 75;
 
     const positions = [];
     const colors = [];
