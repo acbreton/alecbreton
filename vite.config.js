@@ -1,6 +1,12 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  assetsInclude: ["**/*.fbx"],
+  publicDir: './public/',
   plugins: [],
+  base: "./",
+  build: {
+      outDir: './dist',
+      emptyOutDir: true,
+      sourcemap: true
+  },
 })
