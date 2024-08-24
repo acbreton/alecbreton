@@ -1,40 +1,47 @@
 <html>
 	<head>
 		<title>Alec Breton</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="./assets/css/index.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="apple-touch-icon" sizes="180x180" href="./assets/ico/apple-touch-icon.png">
 		<link rel="icon" type="image/png" sizes="32x32" href="./assets/ico/favicon-32x32.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="./assets/ico/favicon-16x16.png">
 	</head>
 
 	<body>
-		<div class="profile-info">
-			<h1><code>console.info(<span id="profile-title">"Alec Breton"</span>);</code></h1>
-			<div id="profile-links">
-				<a href="https://www.github.com/acbreton" target="_blank" >
-					<img src="./assets/img/github.png" width="50" alt="GitHub"/>
-				</a>
-				<a href="https://www.linkedin.com/in/alec-breton" target="_blank" >
-					<img src="./assets/img/linkedin.png" width="50" alt="LinkedIn"/>
-				</a>
+		<canvas class="webgl"></canvas>
+		<section class="section">
+			<div>
+				<h1>About Me</h1>
+				<div class="section-details">
+					<span>Software engineer @ GitHub</span>
+					<span>Music is my passion</span>
+					<span>...And ThreeJS</span>
+				</div>
 			</div>
-			<div id="project-links">
-				<a href="/tetris" target="_blank" >
-					<img src="./assets/img/tetris.png" width="50" alt="Tetris Game"/>
-				</a>
-				<a href="/blockchain" target="_blank" >
-					<img src="./assets/img/blockchain.png" width="50" alt="Blockchain Visualizer"/>
-				</a>
-				<a href="https://chrome.google.com/webstore/detail/in-my-opinion/lkopodamggoocbopennlkmhbmhohlkdc?hl=en" target="_blank" >
-					<img src="./assets/img/imo.png" width="50" alt="In My Opinion"/>
-				</a>
-				<a href="/house" target="_blank" >
-					<img src="./assets/img/ghost.png" width="50" alt="Haunted House"/>
-				</a>
+		</section>
+		<section class="section">
+			<div>
+				<h1>My projects</h1>
+				<div class="section-details" style="text-align: right;">
+					<span><a href="/house">Haunted House</a> -></span>
+					<span><a href="/tetris">Tetris3D</a> -></span>
+					<span><a href="/blockchain">Blockchain Visualizer</a> -></span>
+					<span><a target="_blank" href="https://chromewebstore.google.com/detail/in-my-opinion/lkopodamggoocbopennlkmhbmhohlkdc">In My Opinion (Google Chrome Extension)</a> -></span>
+				</div>
 			</div>
-		</div>
-		<script type="module" src="./src/main.js"></script>
-		<script type="module" src="./src/three.js"></script>
+		</section>
+		<section class="section">
+			<div>
+				<h2>Contact</h2>
+				<div class="section-details">
+					<span><a href="https://www.linkedin.com/in/alec-breton" target="_blank">LinkedIn</a></span>
+					<span><a href="https://www.github.com/acbreton" target="_blank">GitHub</a></span>
+					<span><a href="https://www.lyfeindoors.com" target="_blank">Music</a></span>
+				</div>
+			</div>
+		</section>
+	
+		<script type="module" src="./src/index.js"></script>
 	</body>
 </html>

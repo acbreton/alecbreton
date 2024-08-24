@@ -1,39 +1,55 @@
-html,
-body {
-    font: 12px "Source Sans Pro", sans-serif;
+*
+{
     margin: 0;
+    padding: 0;
 }
 
-a {
-    margin: 12px;
-    text-decoration: none;
+html,
+body
+{
+    background: #1e1a20;
 }
 
-.profile-info {
+.webgl
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    outline: none;
+}
+
+
+.section
+{
     display: flex;
-    flex-direction: column;
     align-items: center;
-    max-width: 500px;
-    position: absolute;
-    background-color: white;
+    height: 100vh;
+    position: relative;
+    font-family: 'Cabin', sans-serif;
+    color: #ffeded;
+    text-transform: uppercase;
+    font-size: 7vmin;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.section div {
+    background-color: black;
     padding: 24px;
-    left: 50%;
-    top: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    border: solid 1px black;
 }
 
-#profile-links {
-    margin-top: 12px;
-    margin-bottom: 24px;
-}
-
-#profile-title {
+.section-details {
     display: flex;
+    flex-flow: column;
 }
 
-#project-links {
-    display: flex;
+.section-details * {
+    margin-bottom: 12px;
+    font-size: 18px;
+    color: white;
+}
+
+section:nth-child(odd)
+{
+    justify-content: flex-end;
 }
