@@ -9,7 +9,7 @@ const canvas = document.querySelector('canvas.webgl')
 const scene = new THREE.Scene()
 
 const textureLoader = new THREE.TextureLoader()
-const gradientTexture = textureLoader.load('textures/gradients/3.jpg')
+const gradientTexture = textureLoader.load('./assets/textures/gradients/3.jpg')
 gradientTexture.magFilter = THREE.NearestFilter
 
 const objectsDistance = 4;
@@ -46,13 +46,6 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
 let scrollY = window.scrollY;
 window.addEventListener('scroll', () => scrollY = window.scrollY)
-
-const cursor = {x: 0, y: 0}
-
-window.addEventListener('mousemove', (event) => {
-    cursor.x = event.clientX / sizes.width - 0.5
-    cursor.y = event.clientY / sizes.height - 0.5
-})
 
 const clock = new THREE.Clock();
 let previousTime = 0;
@@ -118,7 +111,8 @@ function makeSpiral() {
             linewidth: 1,
             worldUnits: true,
             vertexColors: true,
-            alphaToCoverage: true,
+            alphaToCoverage: false,
+            depthWrite: false,
         })
     );
     line.computeLineDistances();
@@ -132,25 +126,24 @@ function createObjects(objectsDistance) {
         gradientMap: gradientTexture
     })
 
-    const mesh1 = new THREE.Mesh(
-        new THREE.TorusGeometry(1, 0.4, 16, 60),
-        material
-    );
-    const mesh2 = new THREE.Mesh(
-        new THREE.ConeGeometry(1, 2, 32),
-        material
-    );
-    const mesh3 = makeSpiral();
+    const mesh1 = new THREE.Mesh(new THREE.OctahedronGeometry(), material);
+    const mesh2 = new THREE.Mesh(new THREE.ConeGeometry(1, 2, 32), material);
+    const mesh3 = new THREE.Mesh(new THREE.TorusGeometry(1, 0.4, 16, 60), material);
 
     mesh1.position.x = 2;
     mesh2.position.x = - 2;
+    mesh3.position.x = 2;
 
     mesh1.position.y = - objectsDistance * 0;
     mesh2.position.y = - objectsDistance * 1;
+    mesh3.position.y = - objectsDistance * 2;
 
-    scene.add(mesh1, mesh2, mesh3);
+    const backgroundSpiral = makeSpiral();
+    backgroundSpiral.position.z = - 30;
 
-    return [mesh1, mesh2, mesh3];
+    scene.add(mesh1, mesh2, mesh3, backgroundSpiral);
+
+    return [mesh1, mesh2, mesh3, backgroundSpiral];
 }
 
 function createBackgroundParticles(objectsDistance) {
