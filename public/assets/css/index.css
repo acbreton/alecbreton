@@ -1,26 +1,21 @@
-*
-{
+* {
     margin: 0;
     padding: 0;
 }
 
 html,
-body
-{
+body {
     background: #1e1a20;
 }
 
-.webgl
-{
+.webgl {
     position: fixed;
     top: 0;
     left: 0;
     outline: none;
 }
 
-
-.section
-{
+section {
     display: flex;
     align-items: center;
     height: 100vh;
@@ -33,14 +28,9 @@ body
     padding-right: 10%;
 }
 
-.section div {
-    background-color: black;
+.section-box {
     padding: 24px;
-}
-
-.section-details {
-    display: flex;
-    flex-flow: column;
+    background-color: black;
 }
 
 .section-details * {
@@ -49,7 +39,41 @@ body
     color: white;
 }
 
-section:nth-child(odd)
-{
-    justify-content: flex-end;
+.section-details {
+    display: flex;
+    flex-flow: column;
+}
+
+.section-details ul {
+    padding: 12px;
+}
+
+.section-details ul li {
+    list-style-type: "- ";
+}
+
+section h2 {
+    margin-bottom: 12px;
+}
+
+section:nth-child(odd) li {
+    direction: rtl;
+    text-align: right;
+}
+
+@media (min-width: 1024px) {
+    section:nth-child(odd) {
+        justify-content: flex-end;
+    }
+}
+
+@media (max-width: 1024px) {
+    section {
+        font-size: 5vmin;
+        justify-content: center;
+    }
+
+    section h2 {
+        text-align: center;
+    }
 }
