@@ -27,13 +27,14 @@ export default class SceneObjects {
     }
 
     adjustPositions(sizes) {
+        const isMobile = sizes.width < 1024;
+
         this.sectionMeshes.forEach((mesh, index) => {
-            if (sizes.height < 900) {
+            if (isMobile) {
+                mesh.position.x = 0;
+            } else {
                 const xPosition = this._calculateXPosition(sizes.height);
                 mesh.position.x = index % 2 === 0 ? xPosition : -xPosition;
-            } else {
-                const horizontalMovement = (index % 2 == 0 ? 2 : -2);
-                mesh.position.x = sizes.width < 1024 ? 0 : horizontalMovement;
             }
         })
     }
