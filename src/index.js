@@ -41,6 +41,7 @@ let previousTime = 0;
 
 const animate = () => {
     const elapsedTime = clock.getElapsedTime();
+
     const deltaTime = elapsedTime - previousTime;
     previousTime = elapsedTime;
     camera.position.y = - scrollY / sizes.height * sceneObjects.distance;

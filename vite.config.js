@@ -1,4 +1,5 @@
-import restart from 'vite-plugin-restart'
+import restart from 'vite-plugin-restart';
+import glsl from 'vite-plugin-glsl';
 
 export default {
     publicDir: './public/',
@@ -13,6 +14,7 @@ export default {
         sourcemap: true
     },
     plugins: [
-        restart({ restart: [ '../static/**', ] })
+        restart({ restart: [ '../public/**', ] }),
+        glsl()
     ],
 }

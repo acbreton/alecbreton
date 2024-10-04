@@ -4,6 +4,11 @@ import { LineMaterial } from 'three/addons/lines/LineMaterial.js';
 import { Line2 } from 'three/addons/lines/Line2.js';
 import { LineGeometry } from 'three/addons/lines/LineGeometry.js';
 
+import holographicVertexShader from './shaders/holographic/vertex.glsl';
+import holographicFragmentShader from './shaders/holographic/fragment.glsl';
+import rainbowVertexShader from './shaders/rainbow/vertex.glsl';
+import rainbowFragmentShader from './shaders/rainbow/fragment.glsl';
+
 export default class SceneObjects {
     constructor(scene, sizes) {
         this.scene = scene;
@@ -131,14 +136,32 @@ export default class SceneObjects {
         const gradientTexture = this.textureLoader.load('./assets/textures/gradients/3.jpg')
         gradientTexture.magFilter = THREE.NearestFilter
 
-        const material = new THREE.MeshToonMaterial({
+        const toonMaterial = new THREE.MeshToonMaterial({
             color: this.parameters.materialColor,
             gradientMap: gradientTexture
         })
+
+        const hologramMaterial = new THREE.ShaderMaterial({ 
+            vertexShader: holographicVertexShader,
+            fragmentShader: holographicFragmentShader,
+            transparent: true,
+            uniforms:
+            {
+                uColor: new THREE.Uniform(new THREE.Color('white')),
+            },
+            side: THREE.DoubleSide,
+            depthWrite: false,
+            blending: THREE.AdditiveBlending
+        })
+
+        const rainbowMaterial = new THREE.ShaderMaterial({ 
+            vertexShader: rainbowVertexShader,
+            fragmentShader: rainbowFragmentShader
+        })
     
-        const mesh1 = new THREE.Mesh(new THREE.OctahedronGeometry(), material);
-        const mesh2 = new THREE.Mesh(new THREE.ConeGeometry(1, 2, 32), material);
-        const mesh3 = new THREE.Mesh(new THREE.TorusGeometry(1, 0.4, 16, 60), material);
+        const mesh1 = new THREE.Mesh(new THREE.OctahedronGeometry(), hologramMaterial);
+        const mesh2 = new THREE.Mesh(new THREE.ConeGeometry(1, 2, 32), rainbowMaterial);
+        const mesh3 = new THREE.Mesh(new THREE.TorusGeometry(1, 0.4, 16, 60), toonMaterial);
     
         mesh1.position.x = this.sizes.width < 1024 ? 0 : 2;
         mesh2.position.x = this.sizes.width < 1024 ? 0 : -2;

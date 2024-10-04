@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Personal website",
   "main": "./src/main.js",
+  "type": "module",
   "scripts": {
     "build": "vite build -c ./vite.config.js",
     "build:dev": "NODE_ENV=development vite build --mode development -c ./vite.config.js",
@@ -26,6 +27,7 @@
   },
   "devDependencies": {
     "vite": "^5.0.13",
+    "vite-plugin-glsl": "^1.3.0",
     "vite-plugin-restart": "^0.4.1"
   }
 }
