@@ -16,10 +16,17 @@ export default class SceneObjects {
         this.distance = 4;
         this.parameters = { materialColor: '#ffeded' };
         this.textureLoader = new THREE.TextureLoader();
+        this.rainbowMaterial = null;
         this.sectionMeshes = this._generateSectionMeshes();
         this.particles = this._generateBackgroundParticles();
         this.spiral = this._generateBackgroundSpiral();
         this.adjustPositions(sizes);
+    }
+
+    animate(elapsedTime) {
+        if (this.rainbowMaterial) {
+            this.rainbowMaterial.uniforms.uTime.value = elapsedTime;
+        }
     }
 
     rotate(deltaTime) {
@@ -145,22 +152,22 @@ export default class SceneObjects {
             vertexShader: holographicVertexShader,
             fragmentShader: holographicFragmentShader,
             transparent: true,
-            uniforms:
-            {
-                uColor: new THREE.Uniform(new THREE.Color('white')),
-            },
+            uniforms: { uColor: new THREE.Uniform(new THREE.Color('white')) },
             side: THREE.DoubleSide,
             depthWrite: false,
             blending: THREE.AdditiveBlending
         })
 
-        const rainbowMaterial = new THREE.ShaderMaterial({ 
+        this.rainbowMaterial = new THREE.ShaderMaterial({
             vertexShader: rainbowVertexShader,
-            fragmentShader: rainbowFragmentShader
-        })
+            fragmentShader: rainbowFragmentShader,
+            uniforms: { uTime: { value: 0 } },
+            side: THREE.DoubleSide,
+            blending: THREE.AdditiveBlending
+        });
     
         const mesh1 = new THREE.Mesh(new THREE.OctahedronGeometry(), hologramMaterial);
-        const mesh2 = new THREE.Mesh(new THREE.ConeGeometry(1, 2, 32), rainbowMaterial);
+        const mesh2 = new THREE.Mesh(new THREE.SphereGeometry(), this.rainbowMaterial);
         const mesh3 = new THREE.Mesh(new THREE.TorusGeometry(1, 0.4, 16, 60), toonMaterial);
     
         mesh1.position.x = this.sizes.width < 1024 ? 0 : 2;

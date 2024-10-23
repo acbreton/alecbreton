@@ -41,6 +41,7 @@ let previousTime = 0;
 
 const animate = () => {
     const elapsedTime = clock.getElapsedTime();
+    sceneObjects.animate(elapsedTime);
 
     const deltaTime = elapsedTime - previousTime;
     previousTime = elapsedTime;
